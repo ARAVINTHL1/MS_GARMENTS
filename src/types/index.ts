@@ -1,10 +1,12 @@
-export type UserRole = 'admin' | 'buyer';
+export type UserRole = 'admin' | 'buyer' | 'employee';
 
 export interface User {
   id: string;
   name: string;
   email: string;
   role: UserRole;
+  employeeId?: string;
+  department?: string;
 }
 
 export interface Product {

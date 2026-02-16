@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { ShieldCheck, ShoppingBag, Store, Phone, MapPin, AlertCircle } from 'lucide-react';
+import { ShieldCheck, ShoppingBag, Store, Phone, MapPin, AlertCircle, Briefcase } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const Login = () => {
@@ -31,7 +31,9 @@ const Login = () => {
     try {
       const result = await login(email, password, role);
       if (result.success) {
-        navigate(role === 'admin' ? '/admin' : '/buyer');
+        if (role === 'admin') navigate('/admin');
+        else if (role === 'employee') navigate('/employee');
+        else navigate('/buyer');
       } else {
         setError(result.message || 'Login failed');
       }
@@ -135,10 +137,14 @@ const Login = () => {
               {!isSignup ? (
                 <>
                   <Tabs defaultValue="admin" onValueChange={(v) => setRole(v as UserRole)} className="mb-6">
-                    <TabsList className="grid w-full grid-cols-2">
+                    <TabsList className="grid w-full grid-cols-3">
                       <TabsTrigger value="admin" className="flex items-center gap-2">
                         <ShieldCheck className="h-4 w-4" />
                         Admin
+                      </TabsTrigger>
+                      <TabsTrigger value="employee" className="flex items-center gap-2">
+                        <Briefcase className="h-4 w-4" />
+                        Employee
                       </TabsTrigger>
                       <TabsTrigger value="buyer" className="flex items-center gap-2">
                         <ShoppingBag className="h-4 w-4" />
@@ -149,6 +155,11 @@ const Login = () => {
                     <TabsContent value="admin">
                       <p className="text-xs text-muted-foreground mb-4">
                         Manage products, orders & view business analytics.
+                      </p>
+                    </TabsContent>
+                    <TabsContent value="employee">
+                      <p className="text-xs text-muted-foreground mb-4">
+                        Manage inventory, process orders & track daily tasks.
                       </p>
                     </TabsContent>
                     <TabsContent value="buyer">
@@ -164,7 +175,7 @@ const Login = () => {
                       <Input
                         id="email"
                         type="email"
-                        placeholder={role === 'admin' ? 'mohanms@gmail.com' : 'buyer@msgarments.com'}
+                        placeholder={role === 'admin' ? 'mohanms@gmail.com' : role === 'employee' ? 'employee@msgarments.com' : 'buyer@msgarments.com'}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
