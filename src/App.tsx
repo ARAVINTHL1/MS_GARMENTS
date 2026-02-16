@@ -10,6 +10,7 @@ import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminProducts from "./pages/admin/AdminProducts";
 import AdminOrders from "./pages/admin/AdminOrders";
+import AdminPredictions from "./pages/admin/AdminPredictions";
 import BuyerLayout from "./pages/buyer/BuyerLayout";
 import BuyerDashboard from "./pages/buyer/BuyerDashboard";
 import BuyerProducts from "./pages/buyer/BuyerProducts";
@@ -45,6 +46,7 @@ const App = () => (
                 <Route index element={<AdminDashboard />} />
                 <Route path="products" element={<AdminProducts />} />
                 <Route path="orders" element={<AdminOrders />} />
+                <Route path="predictions" element={<AdminPredictions />} />
               </Route>
               <Route path="/buyer" element={<ProtectedRoute role="buyer"><BuyerLayout /></ProtectedRoute>}>
                 <Route index element={<BuyerDashboard />} />
