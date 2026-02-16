@@ -31,19 +31,19 @@ const BuyerDashboard = () => {
   return (
     <div className="space-y-8">
       {/* Welcome Section */}
-      <div className="gradient-hero rounded-lg p-8 text-sidebar-foreground">
+      <div className="bg-white rounded-lg p-8 border shadow-sm">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-3xl font-display font-bold">Welcome back, {user?.name || 'Buyer'}!</h1>
-            <p className="text-sidebar-foreground/80 font-body mt-2 text-lg">
+            <h1 className="text-3xl font-display font-bold text-foreground">Welcome back, {user?.name || 'Buyer'}!</h1>
+            <p className="text-muted-foreground font-body mt-2 text-lg">
               M.S. Garments — Your Trusted Wholesale Partner
             </p>
-            <div className="flex items-center gap-2 mt-3 text-sidebar-foreground/70">
+            <div className="flex items-center gap-2 mt-3 text-muted-foreground">
               <Mail className="h-4 w-4" />
               <span className="font-body">{user?.email}</span>
             </div>
           </div>
-          <div className="bg-white/10 p-4 rounded-lg">
+          <div className="bg-secondary/10 p-4 rounded-lg">
             <User className="h-12 w-12 text-secondary" />
           </div>
         </div>
