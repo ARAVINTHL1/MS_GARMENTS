@@ -50,7 +50,7 @@ const BuyerDashboard = () => {
       </div>
 
       {/* Featured Products Carousel */}
-      <Card>
+      <Card className="bg-white">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Package className="h-5 w-5 text-secondary" />
@@ -74,7 +74,7 @@ const BuyerDashboard = () => {
               {featuredProducts.map((product) => (
                 <CarouselItem key={product.id} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
-                    <Card className="border-2 hover:border-secondary transition-colors">
+                    <Card className="bg-white border-2 hover:border-secondary transition-colors">
                       <CardContent className="p-4">
                         <div className="relative aspect-square mb-3 rounded-lg overflow-hidden bg-muted">
                           <img
@@ -115,7 +115,7 @@ const BuyerDashboard = () => {
 
       {/* Stats Overview */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card>
+        <Card className="bg-white">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">My Orders</CardTitle>
             <ShoppingCart className="h-4 w-4 text-muted-foreground" />
@@ -128,7 +128,7 @@ const BuyerDashboard = () => {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-white">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">Total Spent</CardTitle>
             <IndianRupee className="h-4 w-4 text-muted-foreground" />
@@ -141,7 +141,7 @@ const BuyerDashboard = () => {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-white">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">Available Products</CardTitle>
             <Package className="h-4 w-4 text-muted-foreground" />
@@ -156,7 +156,7 @@ const BuyerDashboard = () => {
       </div>
 
       {/* Shop Information */}
-      <Card>
+      <Card className="bg-white">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Award className="h-5 w-5 text-secondary" />
@@ -205,7 +205,7 @@ const BuyerDashboard = () => {
       </Card>
 
       {/* Product Categories */}
-      <Card>
+      <Card className="bg-white">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <ShoppingBag className="h-5 w-5 text-secondary" />
@@ -217,7 +217,7 @@ const BuyerDashboard = () => {
             {categories.map((category) => {
               const categoryProducts = products.filter(p => p.category === category);
               return (
-                <div key={category} className="border rounded-lg p-4 hover:border-secondary transition-colors">
+                <div key={category} className="bg-white border rounded-lg p-4 hover:border-secondary transition-colors">
                   <h3 className="font-semibold capitalize">{category}</h3>
                   <p className="text-sm text-muted-foreground mt-1">
                     {categoryProducts.length} {categoryProducts.length === 1 ? 'product' : 'products'}
@@ -240,7 +240,7 @@ const BuyerDashboard = () => {
 
       {/* Recent Orders */}
       {myOrders.length > 0 && (
-        <Card>
+        <Card className="bg-white">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <ShoppingCart className="h-5 w-5 text-secondary" />
@@ -285,7 +285,7 @@ const BuyerDashboard = () => {
 
       {/* Empty State for No Orders */}
       {myOrders.length === 0 && (
-        <Card>
+        <Card className="bg-white">
           <CardContent className="text-center py-12">
             <ShoppingCart className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
             <h3 className="text-lg font-semibold mb-2">No Orders Yet</h3>
